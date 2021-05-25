@@ -1,0 +1,6 @@
+/.gradle
+/broker/.gradle
+/ExampleDemo/.gradle
+/router/.gradle
+/web-ui/.gradle
+/.idea
