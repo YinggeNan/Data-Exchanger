@@ -4,9 +4,7 @@ import com.cbf.intermediateProcess.IntermediateProcess;
 import com.cbf.read.BaseReader;
 import com.cbf.sink.Sinker;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * @author Sky
@@ -23,6 +21,10 @@ public class ThreeStageProcessor {
         this.reader = reader;
         this. intermediateProcess = intermediateProcess;
     }
+    boolean isReadEnd = false;
+    boolean isIntermediateProcessEnd = false;
+    BlockingQueue<Object> readyForIntermediateProcess = null;
+    BlockingQueue<Object> readyForSink = null;
     private final int THREAD_NUMBER = 2;
     //使用一个queue来同步read、intermediaeProcess呢，还是用多个queue呢
     /**
@@ -40,7 +42,25 @@ public class ThreeStageProcessor {
             e.printStackTrace();
         }
     }
+
+    /**
+     * 读完毕将isReadEnd置为true
+     */
     public void read(){}
+    /**
+     * intermediateProcess完毕将isIntermediateProcessEnd置为true
+     * 中间过程每个线程根据isReadEnd和决定是否关闭
+     */
     public void setIntermediateProcess(){}
+    /**
+     * sink过程每个线程根据isIntermediateProcessEnd决定是否关闭
+     */
     public void sink(){}
+
+    /**
+     * 根据config来初始必要变量
+     */
+    public void init(){
+
+    }
 }
