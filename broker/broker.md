@@ -14,3 +14,6 @@
 #### intermediateProcess和sink阶段的多线程采用可配置的方式调整
 
 #### config.json在序列化时就可以指定某些字段不能为空, 为空直接抛错
+
+
+#### 系统架构图、类图、trigger task的时序图、use case文档、部署图
