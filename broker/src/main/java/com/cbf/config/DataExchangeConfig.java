@@ -37,23 +37,34 @@ public class DataExchangeConfig {
     private class Sinker{
         private DBType dbSinker;
         private KafkaType kafkaSinker;
+        private FileType fileSinker;
+        private int threadNumber;
     }
     private class IntermediateProcess{
         private String intermediateProcessClassName;
+        private int threadNumber;
     }
     @Data
     private class Reader{
         private DBType dbReader;
         private KafkaType kafkaReader;
+        private FileType fileReader;
+        private int threadNumber;
     }
-
+    @Data
     private class DBType{
-
+        private String driverClass;
+        private String url;
+        private String userName;
+        private String password;
+        private String dbName;
     }
-
+    @Data
     private class KafkaType{
         private String topicName;
         private String schemaClass;
     }
-
+    private class FileType{
+        private String fileUrl;
+    }
 }

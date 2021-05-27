@@ -8,5 +8,9 @@
 2. IntermediateProcess、Sink阶段使用多线程
 #### source-target的map关系先留出一个接口，让使用者来实现map关系
 
-#### router和broker之间的调用通过rpc来实现
-1. ，定义一个rpc消息格式{configId（数据库里的taskId）:null};
+#### broker集群，router调度
+1. broker在zk集群中注册自己的信息，接受来自router的调度，router和broker之间的调用通过rpc来实现
+2. 定义一个rpc消息格式{configId（数据库里的taskId）:null}
+#### intermediateProcess和sink阶段的多线程采用可配置的方式调整
+
+#### config.json在序列化时就可以指定某些字段不能为空, 为空直接抛错

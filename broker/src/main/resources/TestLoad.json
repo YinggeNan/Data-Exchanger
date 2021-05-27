@@ -1,0 +1,46 @@
+{
+  "taskName":"test-task",
+  "stageMeta": {
+    "readStage": "null",
+    "intermediateProcessStage": "null",
+    "sinkStage": "null"
+  },
+  "sinker": {
+    "dbSinker": {
+      "driverClass": "null",
+      "url": "null",
+      "userName": "null",
+      "password:": null,
+      "dbName:": null
+    },
+    "kafkaSinker": {
+      "topicName": "null",
+      "schemaClass": "null"
+    },
+    "fileSinker": {
+      "fileUrl": "null"
+    },
+    "threadNumber": "null"
+  },
+  "reader": {
+    "dbReader": {
+      "driverClass": "null",
+      "url": "null",
+      "userName": "null",
+      "password:": null,
+      "dbName:": null
+    },
+    "kafkaReader": {
+      "topicName": "null",
+      "schemaClass": "null"
+    },
+    "fileReader": {
+      "fileUrl": "null"
+    },
+    "threadNumber": "null"
+  },
+  "intermediateProcess": {
+    "intermediateProcessClassName": "null",
+    "threadNumber": "null"
+  }
+}
