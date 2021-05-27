@@ -6,5 +6,12 @@ package com.cbf.config;
  * @date 2021/5/27
  * @description
  */
-public class ReadTypeEnum {
+public enum ReadTypeEnum {
+    DB_SINKER("DB"),
+    KAFKA_SINKER("kafka"),
+    FILE_SINKER("file");
+    ReadTypeEnum(String name){
+        this.name = name;
+    }
+    private String name;
 }

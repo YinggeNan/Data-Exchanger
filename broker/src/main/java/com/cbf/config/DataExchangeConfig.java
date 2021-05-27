@@ -14,9 +14,9 @@ public class DataExchangeConfig {
     private StageMeta stageMeta;
     private Sinker sinker;
     private Reader reader;
-    private IntermediateProcess intermediateProcess;
+    private IntermediateProcessor intermediateProcessor;
     /**
-     * 表明三个阶段的具体处理器
+     * 表明三个阶段的处理器是哪个类型的
      */
     @Data
     private class StageMeta{
@@ -33,38 +33,34 @@ public class DataExchangeConfig {
          */
         private String sinkStage;
     }
+
+    /**
+     * 根据stageMeta的的值来决定reader的属性哪个才有值
+     */
     @Data
-    private class Sinker{
-        private DBType dbSinker;
-        private KafkaType kafkaSinker;
-        private FileType fileSinker;
+    private class Reader{
+        private DataType.DBType dbReader;
+        private DataType.KafkaType kafkaReader;
+        private DataType.FileType fileReader;
         private int threadNumber;
     }
-    private class IntermediateProcess{
+    /**
+     * 根据stageMeta的的值来决定intermediateProcessor的属性哪个才有值
+     */
+    @Data
+    private class IntermediateProcessor{
         private String intermediateProcessClassName;
         private int threadNumber;
     }
+    /**
+     * 根据stageMeta的的值来决定sinker的属性哪个才有值
+     */
     @Data
-    private class Reader{
-        private DBType dbReader;
-        private KafkaType kafkaReader;
-        private FileType fileReader;
+    private class Sinker{
+        private DataType.DBType dbSinker;
+        private DataType.KafkaType kafkaSinker;
+        private DataType.FileType fileSinker;
         private int threadNumber;
     }
-    @Data
-    private class DBType{
-        private String driverClass;
-        private String url;
-        private String userName;
-        private String password;
-        private String dbName;
-    }
-    @Data
-    private class KafkaType{
-        private String topicName;
-        private String schemaClass;
-    }
-    private class FileType{
-        private String fileUrl;
-    }
+
 }

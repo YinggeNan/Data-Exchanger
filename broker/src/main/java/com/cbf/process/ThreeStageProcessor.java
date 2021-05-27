@@ -1,10 +1,14 @@
 package com.cbf.process;
 
-import com.cbf.intermediateProcess.IntermediateProcess;
+import com.cbf.config.DataExchangeConfig;
+import com.cbf.intermediateProcess.IntermediateProcessor;
 import com.cbf.read.BaseReader;
+import com.cbf.read.Reader;
 import com.cbf.sink.Sinker;
+import com.cbf.util.CommonUtil;
 
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author Sky
@@ -14,15 +18,16 @@ import java.util.concurrent.*;
  */
 public class ThreeStageProcessor {
     private Sinker sinker;
-    private BaseReader reader;
-    private IntermediateProcess intermediateProcess;
-    public ThreeStageProcessor(Sinker sinker, BaseReader reader, IntermediateProcess intermediateProcess){
+    private Reader reader;
+    private IntermediateProcessor intermediateProcessor;
+    DataExchangeConfig config;
+    public ThreeStageProcessor(Sinker sinker, Reader reader, IntermediateProcessor intermediateProcessor){
         this.sinker = sinker;
         this.reader = reader;
-        this. intermediateProcess = intermediateProcess;
+        this.intermediateProcessor = intermediateProcessor;
     }
-    boolean isReadEnd = false;
-    boolean isIntermediateProcessEnd = false;
+    AtomicReference<Boolean> isReadEnd = new AtomicReference<>(false);
+    AtomicReference<Boolean> isIntermediateProcessEnd = new AtomicReference<>(false);
     BlockingQueue<Object> readyForIntermediateProcess = null;
     BlockingQueue<Object> readyForSink = null;
     private final int THREAD_NUMBER = 2;
@@ -31,11 +36,12 @@ public class ThreeStageProcessor {
      * 程序主流程
      */
     public void process(){
+        init();
         try{
             ExecutorService service = Executors.newFixedThreadPool(THREAD_NUMBER);
-            service.execute(()->read());
-            service.execute(()->setIntermediateProcess());
-            service.execute(()->sink());
+            service.execute(()->reader.read());
+            service.execute(()->intermediateProcessor.intermediateProcess());
+            service.execute(()->sinker.sink());
             service.shutdown();
             service.awaitTermination(Integer.MAX_VALUE, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
@@ -44,23 +50,11 @@ public class ThreeStageProcessor {
     }
 
     /**
-     * 读完毕将isReadEnd置为true
-     */
-    public void read(){}
-    /**
-     * intermediateProcess完毕将isIntermediateProcessEnd置为true
-     * 中间过程每个线程根据isReadEnd和决定是否关闭
-     */
-    public void setIntermediateProcess(){}
-    /**
-     * sink过程每个线程根据isIntermediateProcessEnd决定是否关闭
-     */
-    public void sink(){}
-
-    /**
      * 根据config来初始必要变量
      */
     public void init(){
-
+        config = CommonUtil.deseriaze();
+        sinker = null;
+        reader = null;
     }
 }

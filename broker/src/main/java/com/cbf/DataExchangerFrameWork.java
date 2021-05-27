@@ -2,6 +2,7 @@ package com.cbf;
 
 import com.cbf.process.ThreeStageProcessor;
 import com.cbf.util.CommonUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,6 +15,7 @@ import java.util.Locale;
  * @date 2021/5/26
  * @description
  */
+@Slf4j
 @SpringBootApplication
 public class DataExchangerFrameWork implements CommandLineRunner {
     public static void main(String[] args) {

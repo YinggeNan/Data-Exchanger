@@ -3,19 +3,16 @@ package com.cbf.read;
 import com.cbf.config.DataExchangeConfig;
 
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author Sky
  * @version 1.0
- * @date 2021/5/26
+ * @date 2021/5/27
  * @description
  */
-public class DBReader extends BaseReader implements  Reader{
-
-
-    public DBReader(BlockingQueue<Object> readyForIntermediateProcessQueue, int threadNumber, DataExchangeConfig config, AtomicReference<Boolean> isConsumeEnd) {
+public class CSVFileReader extends BaseReader implements Reader{
+    public CSVFileReader(BlockingQueue<Object> readyForIntermediateProcessQueue, int threadNumber, DataExchangeConfig config, AtomicReference<Boolean> isConsumeEnd) {
         super(readyForIntermediateProcessQueue, threadNumber, config, isConsumeEnd);
     }
 

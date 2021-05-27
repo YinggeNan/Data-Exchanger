@@ -7,8 +7,9 @@ package com.cbf.config;
  * @description
  */
 public enum SinkTypeEnum {
-    DBSinker("DB"),
-    KafkaSinker("kafka");
+    DB_SINKER("DB"),
+    KAFKA_SINKER("kafka"),
+    FILE_SINKER("file");
     SinkTypeEnum(String name){
         this.name = name;
     }
