@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class BaseSinker {
     BlockingQueue<Object> readyForInsertQueue;
-    ExecutorService executorService;
+    ExecutorService sinkExecutorService;
     DataExchangeConfig config;
     /**
      * intermediateProcess阶段是否完毕，为true表示完毕
@@ -34,7 +34,7 @@ public class BaseSinker {
     public BaseSinker(BlockingQueue<Object> readyForInsertQueue, int threadNumber,
                       DataExchangeConfig config, AtomicReference<Boolean> isIntermediateProcessEnd){
         this.readyForInsertQueue = readyForInsertQueue;
-        this.executorService = Executors.newFixedThreadPool(threadNumber);
+        this.sinkExecutorService = Executors.newFixedThreadPool(threadNumber);
         this.config = config;
         this.isIntermediateProcessEnd = isIntermediateProcessEnd;
     }

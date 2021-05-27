@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class BaseReader {
     BlockingQueue<Object> readyForIntermediateProcessQueue;
-    ExecutorService executorService;
+    ExecutorService readerExecutorService;
     DataExchangeConfig config;
     /**
      * 读完毕，将isConsumeEnd置为true
@@ -31,7 +31,7 @@ public class BaseReader {
                       int threadNumber, DataExchangeConfig config,
                       AtomicReference<Boolean> isConsumeEnd){
         this.readyForIntermediateProcessQueue = readyForIntermediateProcessQueue;
-        this.executorService = Executors.newFixedThreadPool(threadNumber);
+        this.readerExecutorService = Executors.newFixedThreadPool(threadNumber);
         this.config = config;
         this.isConsumeEnd = isConsumeEnd;
     }
