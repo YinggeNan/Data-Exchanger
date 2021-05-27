@@ -1,6 +1,6 @@
-package com.cbf.intermediateProcess;
+package com.cbf.data_exchange.intermediateProcess;
 
-import com.cbf.config.DataExchangeConfig;
+import com.cbf.data_exchange.config.DataExchangeConfig;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicReference;

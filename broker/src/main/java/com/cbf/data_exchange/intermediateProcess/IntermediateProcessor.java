@@ -1,4 +1,4 @@
-package com.cbf.intermediateProcess;
+package com.cbf.data_exchange.intermediateProcess;
 
 /**
  * @author Sky

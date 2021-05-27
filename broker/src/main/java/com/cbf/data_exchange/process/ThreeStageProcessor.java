@@ -1,11 +1,11 @@
-package com.cbf.process;
+package com.cbf.data_exchange.process;
 
-import com.cbf.config.DataExchangeConfig;
-import com.cbf.intermediateProcess.IntermediateProcessor;
-import com.cbf.read.BaseReader;
-import com.cbf.read.Reader;
-import com.cbf.sink.Sinker;
-import com.cbf.util.CommonUtil;
+import com.cbf.data_exchange.config.DataExchangeConfig;
+import com.cbf.data_exchange.intermediateProcess.IntermediateProcessor;
+import com.cbf.data_exchange.read.BaseReader;
+import com.cbf.data_exchange.read.Reader;
+import com.cbf.data_exchange.sink.Sinker;
+import com.cbf.data_exchange.util.CommonUtil;
 
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicReference;

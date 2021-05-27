@@ -1,4 +1,4 @@
-package com.cbf.config;
+package com.cbf.data_exchange.config;
 
 import lombok.Data;
 

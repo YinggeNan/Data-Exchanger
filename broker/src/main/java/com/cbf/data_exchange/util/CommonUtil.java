@@ -1,7 +1,7 @@
-package com.cbf.util;
+package com.cbf.data_exchange.util;
 
-import com.cbf.config.DataExchangeConfig;
-import com.cbf.process.ThreeStageProcessor;
+import com.cbf.data_exchange.config.DataExchangeConfig;
+import com.cbf.data_exchange.process.ThreeStageProcessor;
 
 /**
  * @author Sky

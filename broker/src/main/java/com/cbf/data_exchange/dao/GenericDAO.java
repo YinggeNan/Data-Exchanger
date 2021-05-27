@@ -1,4 +1,4 @@
-package com.cbf.dao;
+package com.cbf.data_exchange.dao;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 

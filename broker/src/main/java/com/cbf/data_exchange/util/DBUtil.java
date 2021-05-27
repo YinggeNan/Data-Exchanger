@@ -1,6 +1,4 @@
-package com.cbf.util;
-
-import org.springframework.jdbc.core.JdbcTemplate;
+package com.cbf.data_exchange.util;
 
 /**
  * @author Sky

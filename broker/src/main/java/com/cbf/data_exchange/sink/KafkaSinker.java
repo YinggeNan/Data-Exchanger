@@ -1,9 +1,7 @@
-package com.cbf.sink;
+package com.cbf.data_exchange.sink;
 
-import com.cbf.config.DataExchangeConfig;
+import com.cbf.data_exchange.config.DataExchangeConfig;
 
-import java.util.List;
-import java.util.Map;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -13,9 +11,9 @@ import java.util.concurrent.atomic.AtomicReference;
  * @date 2021/5/26
  * @description
  */
-public class DBSinker extends BaseSinker implements Sinker{
+public class KafkaSinker extends BaseSinker implements Sinker{
 
-    public DBSinker(BlockingQueue<Object> readyForInsertQueue, int threadNumber,
+    public KafkaSinker(BlockingQueue<Object> readyForInsertQueue, int threadNumber,
                     DataExchangeConfig config, AtomicReference<Boolean> isIntermediateProcessEnd) {
         super(readyForInsertQueue, threadNumber, config, isIntermediateProcessEnd);
     }

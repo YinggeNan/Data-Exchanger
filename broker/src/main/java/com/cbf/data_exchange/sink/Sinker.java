@@ -1,7 +1,4 @@
-package com.cbf.sink;
-
-import java.util.List;
-import java.util.Map;
+package com.cbf.data_exchange.sink;
 
 /**
  * @author Sky

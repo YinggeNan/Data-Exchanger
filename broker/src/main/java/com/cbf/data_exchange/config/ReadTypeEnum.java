@@ -1,4 +1,4 @@
-package com.cbf.config;
+package com.cbf.data_exchange.config;
 
 /**
  * @author Sky
@@ -6,11 +6,11 @@ package com.cbf.config;
  * @date 2021/5/27
  * @description
  */
-public enum SinkTypeEnum {
+public enum ReadTypeEnum {
     DB_SINKER("DB"),
     KAFKA_SINKER("kafka"),
     FILE_SINKER("file");
-    SinkTypeEnum(String name){
+    ReadTypeEnum(String name){
         this.name = name;
     }
     private String name;
