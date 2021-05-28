@@ -2,6 +2,8 @@ package com.cbf.data_exchange.config_enum;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Map;
+
 /**
  * @author Sky
  * @version 1.0
@@ -21,12 +23,20 @@ public enum ReadTypeEnum {
     }
 
     private String name;
-    public ReadTypeEnum getByName(String readTypeName){
-        for(ReadTypeEnum typeName: ReadTypeEnum.values()){
-            if(StringUtils.equals(name, typeName.getName())){
-                return typeName;
-            }
+    /**
+     * {readTypeEnumString:ReadTypeEnum}
+     */
+    public static Map<String, ReadTypeEnum> map;
+    static {
+        constructTypeMap();
+    }
+    private static void constructTypeMap(){
+        ReadTypeEnum[] typeEnums = ReadTypeEnum.values();
+        for(ReadTypeEnum typeEnum: typeEnums){
+            map.put(typeEnum.getName(), typeEnum);
         }
-        return null;
+    }
+    public ReadTypeEnum getEnum(String name){
+        return map.get(name);
     }
 }
