@@ -7,6 +7,7 @@
   },
   "sinker": {
     "dbSinker": {
+      "dbType": "null",
       "driverClass": "null",
       "url": "null",
       "userName": "null",
@@ -25,6 +26,7 @@
   },
   "reader": {
     "dbReader": {
+      "dbType": "null",
       "driverClass": "null",
       "url": "null",
       "userName": "null",

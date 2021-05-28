@@ -12,6 +12,7 @@ import lombok.Data;
 public class DataType {
     @Data
     protected static class DBType{
+        private String dbType;
         private String driverClass;
         private String url;
         private String userName;

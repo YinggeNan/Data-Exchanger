@@ -45,23 +45,23 @@ public enum MysqlDataTypeEnum {
     TINYINT("tinyint"),
     JSON("json"),
     POLYGON("polygon"),
-    REAL("double"),
-    NUMERIC("decimal"),
-    INTEGER("int");
+    REAL("real"),
+    NUMERIC("numeric"),
+    INTEGER("integer");
     private String dbType;
+    public String getDbType() {
+        return dbType;
+    }
     MysqlDataTypeEnum(String dbType){
         this.dbType = dbType;
-    }
-    static {
-        constructTypeMap();
     }
 
     /**
      * {mysqlDataTypeString:MysqlDataTypeEnum}
      */
     public static Map<String, MysqlDataTypeEnum> map;
-    public String getDbType() {
-        return dbType;
+    static {
+        constructTypeMap();
     }
     private static void constructTypeMap(){
         MysqlDataTypeEnum[] typeEnums = MysqlDataTypeEnum.values();
