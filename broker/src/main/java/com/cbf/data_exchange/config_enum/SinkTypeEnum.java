@@ -1,4 +1,4 @@
-package com.cbf.data_exchange.config;
+package com.cbf.data_exchange.config_enum;
 
 import org.apache.commons.lang3.StringUtils;
 
