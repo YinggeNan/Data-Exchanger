@@ -1,4 +1,4 @@
-package com.cbf.data_exchange;
+package com.cbf.data_exchange.config_enum;
 
 /**
  * @author Sky

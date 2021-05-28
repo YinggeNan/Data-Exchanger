@@ -1,4 +1,4 @@
-package com.cbf.data_exchange;
+package com.cbf.data_exchange.config_enum;
 
 /**
  * @author Sky
@@ -6,5 +6,5 @@ package com.cbf.data_exchange;
  * @date 2021/5/28
  * @description
  */
-public class MongodbDataTypeEnum {
+public enum MongodbDataTypeEnum {
 }

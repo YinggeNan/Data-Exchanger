@@ -1,4 +1,4 @@
-package com.cbf.data_exchange;
+package com.cbf.data_exchange.config_enum;
 
 import java.util.Map;
 
@@ -44,7 +44,10 @@ public enum MysqlDataTypeEnum {
     CHAR("char"),
     TINYINT("tinyint"),
     JSON("json"),
-    POLYGON("polygon");
+    POLYGON("polygon"),
+    REAL("double"),
+    NUMERIC("decimal"),
+    INTEGER("int");
     private String dbType;
     MysqlDataTypeEnum(String dbType){
         this.dbType = dbType;
@@ -52,7 +55,11 @@ public enum MysqlDataTypeEnum {
     static {
         constructTypeMap();
     }
-    private static Map<String, MysqlDataTypeEnum> map;
+
+    /**
+     * {mysqlDataTypeString:MysqlDataTypeEnum}
+     */
+    public static Map<String, MysqlDataTypeEnum> map;
     public String getDbType() {
         return dbType;
     }
@@ -62,4 +69,8 @@ public enum MysqlDataTypeEnum {
             map.put(typeEnum.getDbType(), typeEnum);
         }
     }
+    public MysqlDataTypeEnum getEnum(String dbType){
+        return map.get(dbType);
+    }
+
 }
