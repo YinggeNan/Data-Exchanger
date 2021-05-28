@@ -18,7 +18,8 @@
       "schemaClass": "null"
     },
     "fileSinker": {
-      "fileUrl": ""
+      "fileUrl": "",
+      "fileHeaderLines": ""
     },
     "threadNumber": "null"
   },
@@ -35,7 +36,8 @@
       "schemaClass": "null"
     },
     "fileReader": {
-      "fileUrl": "D:\\workspace\\Data-Exchanger\\broker\\src\\main\\resources\\TestInputFile.csv"
+      "fileUrl": "D:\\workspace\\Data-Exchanger\\broker\\src\\main\\resources\\TestInputFile.csv",
+      "fileHeaderLines": "1"
     },
     "threadNumber": "null"
   },

@@ -1,4 +1,4 @@
-package com.cbf.data_exchange;
+package com.cbf.data_exchange.util;
 
 import com.cbf.data_exchange.util.CommonUtil;
 import org.junit.Assert;

@@ -16,6 +16,7 @@ public class DataExchangeConfig {
     private Reader reader;
     private IntermediateProcessor intermediateProcessor;
     private int blockingQueueSize;
+    private String columnMapFilePath;
     /**
      * 表明三个阶段的处理器是哪个类型的
      */

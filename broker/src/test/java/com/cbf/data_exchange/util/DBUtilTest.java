@@ -1,8 +1,12 @@
-package com.cbf.data_exchange;
+package com.cbf.data_exchange.util;
 
 import com.cbf.data_exchange.util.DBUtil;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author Sky
@@ -29,8 +33,10 @@ public class DBUtilTest {
         String driverClass = "com.mysql.jdbc.Driver";
         String userName = "root";
         String ps = "778632ab";
-        String url = "jdbc:mysql://localhost:3306/";
-
+        String url = "jdbc:mysql://localhost:3306/" + dbName + "?"+"serverTimezone=GMT";
+        JdbcTemplate jdbcTemplate = DBUtil.buildJdbcTemplate(driverClass, userName, ps, url);
+        String sql = "select * from sink_test_dataexchanger";
+        List<Map<String, Object>> mapList = jdbcTemplate.queryForList(sql);
     }
     @Test
     void buildJdbcTemplateTestForOracle(){

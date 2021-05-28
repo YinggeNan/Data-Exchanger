@@ -25,5 +25,6 @@ public class DataType {
     }
     protected static class FileType{
         private String fileUrl;
+        private int fileHeaderLines;
     }
 }
