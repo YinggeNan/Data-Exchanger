@@ -15,6 +15,7 @@ public class DataExchangeConfig {
     private Sinker sinker;
     private Reader reader;
     private IntermediateProcessor intermediateProcessor;
+    private int blockingQueueSize;
     /**
      * 表明三个阶段的处理器是哪个类型的
      */

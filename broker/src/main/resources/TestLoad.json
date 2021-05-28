@@ -1,24 +1,24 @@
 {
   "taskName":"test-task",
   "stageMeta": {
-    "readStage": "null",
-    "intermediateProcessStage": "null",
-    "sinkStage": "null"
+    "readStage": "FILE",
+    "intermediateProcessStage": "com.cbf.data_exchange.intermediateProcess.ColumnMapIntermediateProcessor",
+    "sinkStage": "DB"
   },
   "sinker": {
     "dbSinker": {
       "driverClass": "null",
       "url": "null",
       "userName": "null",
-      "password:": null,
-      "dbName:": null
+      "password:": "null",
+      "dbName:": "test-1"
     },
     "kafkaSinker": {
       "topicName": "null",
       "schemaClass": "null"
     },
     "fileSinker": {
-      "fileUrl": "null"
+      "fileUrl": ""
     },
     "threadNumber": "null"
   },
@@ -35,12 +35,14 @@
       "schemaClass": "null"
     },
     "fileReader": {
-      "fileUrl": "null"
+      "fileUrl": "D:\\workspace\\Data-Exchanger\\broker\\src\\main\\resources\\TestInputFile.csv"
     },
     "threadNumber": "null"
   },
   "intermediateProcess": {
     "intermediateProcessClassName": "null",
     "threadNumber": "null"
-  }
+  },
+  "blockingQueueSize": "null",
+  "columnMapFilePath": "null"
 }

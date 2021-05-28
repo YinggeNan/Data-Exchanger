@@ -1,5 +1,7 @@
 package com.cbf.data_exchange.config;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * @author Sky
  * @version 1.0
@@ -8,10 +10,23 @@ package com.cbf.data_exchange.config;
  */
 public enum ReadTypeEnum {
     DB_SINKER("DB"),
-    KAFKA_SINKER("kafka"),
-    FILE_SINKER("file");
+    KAFKA_SINKER("KAFKA"),
+    FILE_SINKER("FILE");
     ReadTypeEnum(String name){
         this.name = name;
     }
+
+    public String getName() {
+        return name;
+    }
+
     private String name;
+    public ReadTypeEnum getByName(String readTypeName){
+        for(ReadTypeEnum typeName: ReadTypeEnum.values()){
+            if(StringUtils.equals(name, typeName.getName())){
+                return typeName;
+            }
+        }
+        return null;
+    }
 }
