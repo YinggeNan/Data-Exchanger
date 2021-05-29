@@ -8,11 +8,11 @@
   "sinker": {
     "dbSinker": {
       "dbType": "mysql",
-      "driverClass": "com.mysql.jdbc.Driver",
+      "driverClass": "com.mysql.cj.jdbc.Driver",
       "url": "jdbc:mysql://localhost:3306/test?serverTimezone=GMT",
       "userName": "root",
-      "password:": "778632ab",
-      "dbName:": "test",
+      "password": "778632ab",
+      "dbName": "test",
       "batchSinkNumber":5000
     },
     "kafkaSinker": {
@@ -39,7 +39,7 @@
       "schemaClass": "null"
     },
     "fileReader": {
-      "fileUrl": "D:\\workspace\\Data-Exchanger\\broker\\src\\main\\resources\\TestInputFile.csv",
+      "fileUrl": "D:\\workspace\\Data-Exchanger\\broker\\src\\main\\resources\\file\\TestInputFile.csv",
       "fileHeaderLines": 1
     }
   },

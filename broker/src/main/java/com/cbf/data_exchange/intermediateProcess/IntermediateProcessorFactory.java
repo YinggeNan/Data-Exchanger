@@ -18,24 +18,31 @@ import java.util.concurrent.atomic.AtomicReference;
  * @date 2021/5/29
  * @description
  */
-public class IntermediateProcessFactory {
-    public static IntermediateProcessor constructReader(BlockingQueue<Object> readyForIntermediateProcessQueue,
-                                                        BlockingQueue<Object> readyForSinkQueue,
-                                                        Integer threadNumber, DataExchangeConfig config,
-                                                        AtomicReference<Boolean> isReadEnd,
-                                                        AtomicReference<Boolean> isIntermediateProcessEnd){
+public class IntermediateProcessorFactory {
+    public static IntermediateProcessor constructIntermediateProcessor(BlockingQueue<Object> readyForIntermediateProcessQueue,
+                                                                       BlockingQueue<Object> readyForSinkQueue,
+                                                                       Integer threadNumber,
+                                                                       DataExchangeConfig config,
+                                                                       AtomicReference<Boolean> isReadEnd,
+                                                                       AtomicReference<Boolean> isIntermediateProcessEnd){
         IntermediateProcessor processor = null;
         try{
             Constructor constructor = Class.forName(config.getIntermediateProcessor().
                     getIntermediateProcessClassName()).
-                    getDeclaredConstructor(BlockingQueue.class,
+                    getDeclaredConstructor(
+                            BlockingQueue.class,
                             BlockingQueue.class,
                             Integer.class,
                             DataExchangeConfig.class,
                             AtomicReference.class,
                             AtomicReference.class);
-            return (IntermediateProcessor)constructor.newInstance(readyForIntermediateProcessQueue,
-                    readyForSinkQueue, threadNumber, constructor, isReadEnd, isIntermediateProcessEnd);
+            processor = (IntermediateProcessor)constructor.newInstance(
+                    readyForIntermediateProcessQueue,
+                    readyForSinkQueue,
+                    threadNumber,
+                    config,
+                    isReadEnd,
+                    isIntermediateProcessEnd);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
@@ -47,6 +54,6 @@ public class IntermediateProcessFactory {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-        return null;
+        return processor;
     }
 }

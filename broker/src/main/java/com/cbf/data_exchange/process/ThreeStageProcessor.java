@@ -3,14 +3,12 @@ package com.cbf.data_exchange.process;
 import com.cbf.data_exchange.config.DataExchangeConfig;
 import com.cbf.data_exchange.config_enum.ReadTypeEnum;
 import com.cbf.data_exchange.config_enum.SinkTypeEnum;
-import com.cbf.data_exchange.intermediateProcess.IntermediateProcessFactory;
+import com.cbf.data_exchange.intermediateProcess.IntermediateProcessorFactory;
 import com.cbf.data_exchange.intermediateProcess.IntermediateProcessor;
-import com.cbf.data_exchange.read.BaseReader;
 import com.cbf.data_exchange.read.Reader;
 import com.cbf.data_exchange.read.ReaderFactory;
 import com.cbf.data_exchange.sink.Sinker;
 import com.cbf.data_exchange.sink.SinkerFactory;
-import com.cbf.data_exchange.util.CommonUtil;
 
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicReference;
@@ -62,7 +60,7 @@ public class ThreeStageProcessor {
         int sinkThreadNumber = Runtime.getRuntime().availableProcessors()*2;
         sinker = SinkerFactory.constructReader(sinkTypeEnum, readyForSink, sinkThreadNumber,
                 config, isIntermediateProcessEnd);
-        intermediateProcessor = IntermediateProcessFactory.constructReader(
+        intermediateProcessor = IntermediateProcessorFactory.constructIntermediateProcessor(
                 readyForIntermediateProcess,
                 readyForSink,
                 1,

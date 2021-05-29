@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
@@ -36,6 +37,7 @@ public class CSVFileReader extends BaseReader implements Reader{
         String filePath = fileType.getFileUrl();
         int headerLines = fileType.getFileHeaderLines();
         Map<Integer, String> indexAndColumnNameMap = null;
+//        Path file = Paths.get(new File(filePath).toURI());
         Path file = Paths.get(filePath);
         try{
             BufferedReader reader = new BufferedReader(new InputStreamReader(Files.newInputStream(file)));

@@ -37,7 +37,8 @@ public class BaseIntermediatProcessor {
     AtomicLong intermediateCount;
     public BaseIntermediatProcessor(BlockingQueue<Object> readyForIntermediateProcessQueue,
                                     BlockingQueue<Object> readyForSinkQueue,
-                                    Integer threadNumber, DataExchangeConfig config,
+                                    Integer threadNumber,
+                                    DataExchangeConfig config,
                                     AtomicReference<Boolean> isConsumeEnd,
                                     AtomicReference<Boolean> isIntermediateProcessEnd){
         this.readyForIntermediateProcessQueue = readyForIntermediateProcessQueue;
