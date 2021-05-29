@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class KafkaSinker extends BaseSinker implements Sinker{
 
-    public KafkaSinker(BlockingQueue<Object> readyForSinkQueue, int threadNumber,
+    public KafkaSinker(BlockingQueue<Object[]> readyForSinkQueue, int threadNumber,
                     DataExchangeConfig config, AtomicReference<Boolean> isIntermediateProcessEnd) {
         super(readyForSinkQueue, threadNumber, config, isIntermediateProcessEnd);
     }

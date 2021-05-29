@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * @description 给每个独立的sinker提供公共的属性
  */
 public class BaseSinker {
-    BlockingQueue<Object> readyForSinkQueue;
+    BlockingQueue<Object[]> readyForSinkQueue;
     ExecutorService sinkExecutorService;
     DataExchangeConfig config;
     /**
@@ -31,7 +31,7 @@ public class BaseSinker {
      */
     AtomicLong sinkCount = new AtomicLong(0);
     int threadNumber;
-    public BaseSinker(BlockingQueue<Object> readyForSinkQueue, int threadNumber,
+    public BaseSinker(BlockingQueue<Object[]> readyForSinkQueue, int threadNumber,
                       DataExchangeConfig config, AtomicReference<Boolean> isIntermediateProcessEnd){
         this.readyForSinkQueue = readyForSinkQueue;
         this.sinkExecutorService = Executors.newFixedThreadPool(threadNumber);

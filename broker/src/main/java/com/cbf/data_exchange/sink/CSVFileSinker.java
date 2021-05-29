@@ -23,7 +23,8 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class CSVFileSinker extends BaseSinker implements Sinker {
 
-    public CSVFileSinker(BlockingQueue<Object> readyForSinkQueue, int threadNumber, DataExchangeConfig config, AtomicReference<Boolean> isIntermediateProcessEnd) {
+
+    public CSVFileSinker(BlockingQueue<Object[]> readyForSinkQueue, int threadNumber, DataExchangeConfig config, AtomicReference<Boolean> isIntermediateProcessEnd) {
         super(readyForSinkQueue, threadNumber, config, isIntermediateProcessEnd);
     }
 

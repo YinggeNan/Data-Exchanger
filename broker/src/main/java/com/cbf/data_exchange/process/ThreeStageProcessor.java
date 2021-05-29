@@ -26,7 +26,7 @@ public class ThreeStageProcessor {
     AtomicReference<Boolean> isReadEnd = new AtomicReference<>(false);
     AtomicReference<Boolean> isIntermediateProcessEnd = new AtomicReference<>(false);
     BlockingQueue<Object> readyForIntermediateProcess = null;
-    BlockingQueue<Object> readyForSink = null;
+    BlockingQueue<Object[]> readyForSink = null;
     private final int THREAD_NUMBER = 2;
     //使用一个queue来同步read、intermediaeProcess呢，还是用多个queue呢
     /**

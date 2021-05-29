@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * @description
  */
 public class SinkerFactory {
-    public static Sinker constructReader(SinkTypeEnum typeEnum, BlockingQueue<Object> readyForIntermediateProcessQueue,
+    public static Sinker constructReader(SinkTypeEnum typeEnum, BlockingQueue<Object[]> readyForIntermediateProcessQueue,
                                          int threadNumber, DataExchangeConfig config,
                                          AtomicReference<Boolean> isIntermediateProcessEnd){
         switch (typeEnum){

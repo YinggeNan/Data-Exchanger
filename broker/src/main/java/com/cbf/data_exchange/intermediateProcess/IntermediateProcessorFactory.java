@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class IntermediateProcessorFactory {
     public static IntermediateProcessor constructIntermediateProcessor(BlockingQueue<Object> readyForIntermediateProcessQueue,
-                                                                       BlockingQueue<Object> readyForSinkQueue,
+                                                                       BlockingQueue<Object[]> readyForSinkQueue,
                                                                        Integer threadNumber,
                                                                        DataExchangeConfig config,
                                                                        AtomicReference<Boolean> isReadEnd,
