@@ -2,6 +2,7 @@ package com.cbf.data_exchange.config_enum;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -25,7 +26,7 @@ public enum SinkTypeEnum {
     /**
      * {sinkTypeEnumString:SinkTypeEnum}
      */
-    public static Map<String, SinkTypeEnum> map;
+    public static Map<String, SinkTypeEnum> map = new HashMap<>();
     static {
         constructTypeMap();
     }
@@ -35,7 +36,7 @@ public enum SinkTypeEnum {
             map.put(typeEnum.getName(), typeEnum);
         }
     }
-    public SinkTypeEnum getEnum(String name){
+    public static SinkTypeEnum getEnum(String name){
         return map.get(name);
     }
 }

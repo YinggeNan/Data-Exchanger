@@ -33,7 +33,7 @@ public class GenericDAO {
      * @return
      */
     @Transactional
-    public Integer batchUpdate(String sql,int batchNumber, List<Map<String, Object>> data,
+    public int[] batchUpdate(String sql,int batchNumber, List<Map<String, Object>> data,
                                String[] sinkSequence, Map<String, String> columnType){
         int[] ans = jdbcTemplate.batchUpdate(sql, new BatchPreparedStatementSetter() {
             /**
@@ -61,8 +61,15 @@ public class GenericDAO {
                 return batchNumber;
             }
         });
-        return null;
+        return ans;
     }
+
+    @Transactional
+    public int[] simpleBatchUpdate(String sql, List<Object[]> data){
+        int[] ans = jdbcTemplate.batchUpdate(sql, data);
+        return ans;
+    }
+
     public List<Map<String, Object>> queryForList(String sql){
         return jdbcTemplate.queryForList(sql);
     }

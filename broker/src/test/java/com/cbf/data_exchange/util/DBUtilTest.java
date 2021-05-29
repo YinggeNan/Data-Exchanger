@@ -23,9 +23,11 @@ public class DBUtilTest {
     }
     @Test
     void constructInsertSqlForMysqlTest(){
-        Assert.assertEquals("INSERT INTO cbf_test (name,age,height,profit,school,reason) VALUES (?,?,?,?,?,?) ",
-                DBUtil.constructInsertSqlForMysql("cbf_test",
-                        new String[]{"name", "age", "height", "profit", "school", "reason"}));
+        System.out.println(DBUtil.constructInsertSqlForMysql("sink_test_dataexchanger",
+                new String[]{"cobdate", "country", "province", "city", "carNumber", "profit"}));
+        Assert.assertEquals("INSERT INTO sink_test_dataexchanger (cobdate,country,province,city,carNumber,profit) VALUES (?,?,?,?,?,?) ",
+                DBUtil.constructInsertSqlForMysql("sink_test_dataexchanger",
+                        new String[]{"cobdate", "country", "province", "city", "carNumber", "profit"}));
     }
     @Test
     void buildJdbcTemplateTestForMysql(){

@@ -1,7 +1,9 @@
 package com.cbf;
 
+import com.cbf.data_exchange.config.DataExchangeConfig;
 import com.cbf.data_exchange.process.ThreeStageProcessor;
 import com.cbf.data_exchange.util.CommonUtil;
+import com.cbf.data_exchange.util.FileParseUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -21,7 +23,11 @@ public class DataExchangerFrameWork implements CommandLineRunner {
     }
     @Override
     public void run(String... args) throws Exception {
-        ThreeStageProcessor processor = CommonUtil.constructProcessor(null);
-        processor.process();
+        String configPath = System.getProperty("CONFIG_LOCATION");
+        if(configPath==null){
+            configPath = "D:\\workspace\\Data-Exchanger\\broker\\src\\main\\resources\\TestLoadConfig.json";
+        }
+        DataExchangeConfig config = FileParseUtil.convertJSONAsObject(DataExchangeConfig.class, configPath);
+        new ThreeStageProcessor().process(config);
     }
 }

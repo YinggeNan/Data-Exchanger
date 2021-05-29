@@ -1,6 +1,7 @@
 package com.cbf.data_exchange.config_enum;
 
 import java.sql.Blob;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -29,7 +30,7 @@ public enum JavaDataTypeEnum {
     JavaDataTypeEnum(String dataType){
         this.dataType = dataType;
     }
-    private static Map<String, JavaDataTypeEnum> map;
+    private static Map<String, JavaDataTypeEnum> map = new HashMap<>();;
     static {
         constructTypeMap();
     }

@@ -12,7 +12,8 @@
       "url": "jdbc:mysql://localhost:3306/test?serverTimezone=GMT",
       "userName": "root",
       "password:": "778632ab",
-      "dbName:": "test"
+      "dbName:": "test",
+      "batchSinkNumber":5000
     },
     "kafkaSinker": {
       "topicName": "null",
@@ -30,7 +31,8 @@
       "url": "null",
       "userName": "null",
       "password:": null,
-      "dbName:": null
+      "dbName:": null,
+      "batchSinkNumber":null
     },
     "kafkaReader": {
       "topicName": "null",
@@ -41,7 +43,7 @@
       "fileHeaderLines": 1
     }
   },
-  "intermediateProcess": {
+  "intermediateProcessor": {
     "intermediateProcessClassName": "com.cbf.data_exchange.intermediateProcess.TestIntermediateProcessor"
   },
   "blockingQueueSize": 5000,

@@ -1,5 +1,6 @@
 package com.cbf.data_exchange.config_enum;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -22,7 +23,7 @@ public enum DBType {
     public String getDbType() {
         return dbType;
     }
-    public static Map<String, DBType> map;
+    public static Map<String, DBType> map = new HashMap<>();;
     private static void constructTypeMap(){
         DBType[] typeEnums = DBType.values();
         for(DBType typeEnum: typeEnums){

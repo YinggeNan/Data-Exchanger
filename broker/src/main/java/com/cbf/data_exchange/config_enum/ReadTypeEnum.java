@@ -2,6 +2,7 @@ package com.cbf.data_exchange.config_enum;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -11,9 +12,9 @@ import java.util.Map;
  * @description
  */
 public enum ReadTypeEnum {
-    DB_SINKER("DB"),
-    KAFKA_SINKER("KAFKA"),
-    FILE_SINKER("FILE");
+    DB_Reader("DB"),
+    KAFKA_Reader("KAFKA"),
+    FILE_Reader("FILE");
     ReadTypeEnum(String name){
         this.name = name;
     }
@@ -26,7 +27,7 @@ public enum ReadTypeEnum {
     /**
      * {readTypeEnumString:ReadTypeEnum}
      */
-    public static Map<String, ReadTypeEnum> map;
+    public static Map<String, ReadTypeEnum> map = new HashMap<>();
     static {
         constructTypeMap();
     }
@@ -36,7 +37,7 @@ public enum ReadTypeEnum {
             map.put(typeEnum.getName(), typeEnum);
         }
     }
-    public ReadTypeEnum getEnum(String name){
+    public static ReadTypeEnum getEnum(String name){
         return map.get(name);
     }
 }

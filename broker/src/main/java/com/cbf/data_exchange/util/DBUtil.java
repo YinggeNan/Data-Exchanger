@@ -24,7 +24,10 @@ public class DBUtil {
             return new JdbcTemplate(dataSource);
         }
     }
-    private static class JdbcTemplateBuilder{
+    public static JdbcTemplateBuilder getJdbcTemplateBuilder(){
+        return new JdbcTemplateBuilder();
+    }
+    public static class JdbcTemplateBuilder{
         private String driverClass;
         private String userName;
         private String ps;

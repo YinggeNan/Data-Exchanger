@@ -16,12 +16,13 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class BaseIntermediatProcessor {
     BlockingQueue<Object> readyForIntermediateProcessQueue;
+    BlockingQueue<Object> readyForSinkQueue;
     ExecutorService intermediateProcessExecutorService;
     DataExchangeConfig config;
     /**
      * read阶段是否完毕，为true表示完毕
      */
-    AtomicReference<Boolean> isConsumeEnd;
+    AtomicReference<Boolean> isReadEnd;
     /**
      * 中间处理完毕，将isIntermediateProcessEnd置为true
      */
@@ -35,13 +36,15 @@ public class BaseIntermediatProcessor {
      */
     AtomicLong intermediateCount;
     public BaseIntermediatProcessor(BlockingQueue<Object> readyForIntermediateProcessQueue,
-                                    int threadNumber, DataExchangeConfig config,
+                                    BlockingQueue<Object> readyForSinkQueue,
+                                    Integer threadNumber, DataExchangeConfig config,
                                     AtomicReference<Boolean> isConsumeEnd,
                                     AtomicReference<Boolean> isIntermediateProcessEnd){
         this.readyForIntermediateProcessQueue = readyForIntermediateProcessQueue;
+        this.readyForSinkQueue = readyForSinkQueue;
         this.intermediateProcessExecutorService = Executors.newFixedThreadPool(threadNumber);
         this.config = config;
-        this.isConsumeEnd = isConsumeEnd;
+        this.isReadEnd = isConsumeEnd;
         this.isIntermediateProcessEnd = isIntermediateProcessEnd;
     }
 }

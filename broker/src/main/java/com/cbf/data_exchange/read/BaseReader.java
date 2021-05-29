@@ -21,7 +21,7 @@ public class BaseReader {
     /**
      * 读完毕，将isConsumeEnd置为true
      */
-    AtomicReference<Boolean> isConsumeEnd;
+    AtomicReference<Boolean> isReadEnd;
     /**
      * 从数据源读到的数据
      */
@@ -32,6 +32,6 @@ public class BaseReader {
         this.readyForIntermediateProcessQueue = readyForIntermediateProcessQueue;
         this.readerExecutorService = Executors.newFixedThreadPool(threadNumber);
         this.config = config;
-        this.isConsumeEnd = isConsumeEnd;
+        this.isReadEnd = isConsumeEnd;
     }
 }

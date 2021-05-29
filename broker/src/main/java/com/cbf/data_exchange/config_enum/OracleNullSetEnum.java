@@ -1,5 +1,6 @@
 package com.cbf.data_exchange.config_enum;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -16,7 +17,7 @@ public enum OracleNullSetEnum {
         this.columnType = columnType;
         this.nullType = nullType;
     }
-    Map<String,Map<String, Integer>> columnTypeSetNullTypeMap;
+    Map<String,Map<String, Integer>> columnTypeSetNullTypeMap = new HashMap<>();;
     static {
         constructTypeMap();
     }

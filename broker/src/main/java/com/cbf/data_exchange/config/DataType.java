@@ -11,20 +11,22 @@ import lombok.Data;
 @Data
 public class DataType {
     @Data
-    protected static class DBType{
+    public static class DBType{
         private String dbType;
         private String driverClass;
         private String url;
         private String userName;
         private String password;
         private String dbName;
+        private Integer batchSinkNumber;
     }
     @Data
-    protected static class KafkaType{
+    public static class KafkaType{
         private String topicName;
         private String schemaClass;
     }
-    protected static class FileType{
+    @Data
+    public static class FileType{
         /**
          * 待读取文件路径
          */

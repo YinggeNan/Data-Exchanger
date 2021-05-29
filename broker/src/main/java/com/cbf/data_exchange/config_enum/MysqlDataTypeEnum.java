@@ -1,5 +1,6 @@
 package com.cbf.data_exchange.config_enum;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -59,7 +60,7 @@ public enum MysqlDataTypeEnum {
     /**
      * {mysqlDataTypeString:MysqlDataTypeEnum}
      */
-    public static Map<String, MysqlDataTypeEnum> map;
+    public static Map<String, MysqlDataTypeEnum> map = new HashMap<>();;
     static {
         constructTypeMap();
     }

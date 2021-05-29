@@ -16,12 +16,15 @@ public class DataExchangeConfig {
     private Reader reader;
     private IntermediateProcessor intermediateProcessor;
     private Integer blockingQueueSize;
+    /**
+     * json文件,平铺类型，没有嵌套:{sinkColumnName:readColumnName}
+     */
     private String columnMapFilePath;
     /**
      * 表明三个阶段的处理器是哪个类型的
      */
     @Data
-    private class StageMeta{
+    public static class StageMeta{
         /**
          * read阶段是DBReader、KafkaReader？
          */
@@ -40,7 +43,7 @@ public class DataExchangeConfig {
      * 根据stageMeta的的值来决定reader的属性哪个才有值
      */
     @Data
-    private class Reader{
+    public static class Reader{
         private DataType.DBType dbReader;
         private DataType.KafkaType kafkaReader;
         private DataType.FileType fileReader;
@@ -49,14 +52,14 @@ public class DataExchangeConfig {
      * 根据stageMeta的的值来决定intermediateProcessor的属性哪个才有值
      */
     @Data
-    private class IntermediateProcessor{
+    public static class IntermediateProcessor{
         private String intermediateProcessClassName;
     }
     /**
      * 根据stageMeta的的值来决定sinker的属性哪个才有值
      */
     @Data
-    private class Sinker{
+    public static class Sinker{
         private DataType.DBType dbSinker;
         private DataType.KafkaType kafkaSinker;
         private DataType.FileType fileSinker;

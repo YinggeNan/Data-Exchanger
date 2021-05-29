@@ -12,8 +12,9 @@ import java.util.concurrent.atomic.AtomicReference;
  * @description
  */
 public class ColumnMapIntermediateProcessor extends BaseIntermediatProcessor implements  IntermediateProcessor{
-    public ColumnMapIntermediateProcessor(BlockingQueue<Object> readyForIntermediateProcessQueue, int threadNumber, DataExchangeConfig config, AtomicReference<Boolean> isConsumeEnd, AtomicReference<Boolean> isIntermediateProcessEnd) {
-        super(readyForIntermediateProcessQueue, threadNumber, config, isConsumeEnd, isIntermediateProcessEnd);
+
+    public ColumnMapIntermediateProcessor(BlockingQueue<Object> readyForIntermediateProcessQueue, BlockingQueue<Object> readyForSinkQueue, Integer threadNumber, DataExchangeConfig config, AtomicReference<Boolean> isConsumeEnd, AtomicReference<Boolean> isIntermediateProcessEnd) {
+        super(readyForIntermediateProcessQueue, readyForSinkQueue, threadNumber, config, isConsumeEnd, isIntermediateProcessEnd);
     }
 
     @Override
