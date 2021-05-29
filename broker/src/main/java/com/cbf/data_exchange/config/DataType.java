@@ -25,7 +25,13 @@ public class DataType {
         private String schemaClass;
     }
     protected static class FileType{
+        /**
+         * 待读取文件路径
+         */
         private String fileUrl;
-        private int fileHeaderLines;
+        /**
+         * 文件头行数：从头读取时要忽略的行数
+         */
+        private Integer fileHeaderLines;
     }
 }

@@ -9,10 +9,11 @@ import java.util.Map;
  * @description
  */
 public enum MysqlNullSetEnum {
+
     ;
-    private String columnType;
+    private MysqlDataTypeEnum columnType;
     private int nullType;
-    MysqlNullSetEnum( String columnType, int nullType){
+    MysqlNullSetEnum(MysqlDataTypeEnum columnType, int nullType){
         this.columnType = columnType;
         this.nullType = nullType;
     }

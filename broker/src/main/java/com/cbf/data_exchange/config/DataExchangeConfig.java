@@ -15,7 +15,7 @@ public class DataExchangeConfig {
     private Sinker sinker;
     private Reader reader;
     private IntermediateProcessor intermediateProcessor;
-    private int blockingQueueSize;
+    private Integer blockingQueueSize;
     private String columnMapFilePath;
     /**
      * 表明三个阶段的处理器是哪个类型的
@@ -44,7 +44,6 @@ public class DataExchangeConfig {
         private DataType.DBType dbReader;
         private DataType.KafkaType kafkaReader;
         private DataType.FileType fileReader;
-        private int threadNumber;
     }
     /**
      * 根据stageMeta的的值来决定intermediateProcessor的属性哪个才有值
@@ -52,7 +51,6 @@ public class DataExchangeConfig {
     @Data
     private class IntermediateProcessor{
         private String intermediateProcessClassName;
-        private int threadNumber;
     }
     /**
      * 根据stageMeta的的值来决定sinker的属性哪个才有值
@@ -62,7 +60,6 @@ public class DataExchangeConfig {
         private DataType.DBType dbSinker;
         private DataType.KafkaType kafkaSinker;
         private DataType.FileType fileSinker;
-        private int threadNumber;
     }
 
 }

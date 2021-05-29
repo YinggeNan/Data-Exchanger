@@ -1,18 +1,18 @@
 {
-  "taskName":"test-task",
+  "taskName":"test-task-file-to-db",
   "stageMeta": {
     "readStage": "FILE",
-    "intermediateProcessStage": "com.cbf.data_exchange.intermediateProcess.ColumnMapIntermediateProcessor",
+    "intermediateProcessStage": "null",
     "sinkStage": "DB"
   },
   "sinker": {
     "dbSinker": {
-      "dbType": "null",
-      "driverClass": "null",
-      "url": "null",
-      "userName": "null",
-      "password:": "null",
-      "dbName:": "test-1"
+      "dbType": "mysql",
+      "driverClass": "com.mysql.jdbc.Driver",
+      "url": "jdbc:mysql://localhost:3306/test?serverTimezone=GMT",
+      "userName": "root",
+      "password:": "778632ab",
+      "dbName:": "test"
     },
     "kafkaSinker": {
       "topicName": "null",
@@ -20,9 +20,8 @@
     },
     "fileSinker": {
       "fileUrl": "",
-      "fileHeaderLines": ""
-    },
-    "threadNumber": "null"
+      "fileHeaderLines": null
+    }
   },
   "reader": {
     "dbReader": {
@@ -39,14 +38,12 @@
     },
     "fileReader": {
       "fileUrl": "D:\\workspace\\Data-Exchanger\\broker\\src\\main\\resources\\TestInputFile.csv",
-      "fileHeaderLines": "1"
-    },
-    "threadNumber": "null"
+      "fileHeaderLines": 1
+    }
   },
   "intermediateProcess": {
-    "intermediateProcessClassName": "null",
-    "threadNumber": "null"
+    "intermediateProcessClassName": "com.cbf.data_exchange.intermediateProcess.TestIntermediateProcessor"
   },
-  "blockingQueueSize": "null",
-  "columnMapFilePath": "null"
+  "blockingQueueSize": 5000,
+  "columnMapFilePath": "D:\\workspace\\Data-Exchanger\\broker\\src\\main\\resources\\columnMap.json"
 }
