@@ -45,7 +45,7 @@ public class TestIntermediateProcessor extends BaseIntermediatProcessor implemen
                 Map<String, String> readColumnNameAndValueMap = (Map<String, String>)readyForIntermediateProcessQueue.poll();
                 //这里没有什么诸如日期格式改变，一行便多行，或者列聚合等操作，所有直接略过
                 //先构造为object[]格式，测试整个流程
-                Object[] objects = new Object[readColumnNameAndValueMap.size()];
+                Object[] objects = new Object[sinkSequence.length];
                 for(int i=0;i<sinkSequence.length;i++){
                     String readColumnName = sinkColumnAndReadColumnMap.get(sinkSequence[i]);
                     objects[i] = readColumnNameAndValueMap.get(readColumnName);
