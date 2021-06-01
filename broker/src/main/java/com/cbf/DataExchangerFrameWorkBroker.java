@@ -2,12 +2,12 @@ package com.cbf;
 
 import com.cbf.data_exchange.config.DataExchangeConfig;
 import com.cbf.data_exchange.process.ThreeStageProcessor;
-import com.cbf.data_exchange.util.CommonUtil;
 import com.cbf.data_exchange.util.FileParseUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 /**
  * @author Sky
@@ -16,10 +16,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @description
  */
 @Slf4j
-@SpringBootApplication
-public class DataExchangerFrameWork implements CommandLineRunner {
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+public class DataExchangerFrameWorkBroker implements CommandLineRunner {
     public static void main(String[] args) {
-        SpringApplication.run(DataExchangerFrameWork.class, args);
+        SpringApplication.run(DataExchangerFrameWorkBroker.class, args);
     }
     @Override
     public void run(String... args) throws Exception {

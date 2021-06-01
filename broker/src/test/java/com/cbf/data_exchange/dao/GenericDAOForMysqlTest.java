@@ -2,12 +2,9 @@ package com.cbf.data_exchange.dao;
 
 import com.cbf.data_exchange.util.DBUtil;
 import org.junit.Before;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -19,10 +16,10 @@ import java.util.Map;
  */
 public class GenericDAOForMysqlTest {
     GenericDAO genericDAO;
-    @BeforeEach
+    @Before
     public void init(){
         String dbName = "test";
-        String driverClass = "com.mysql.jdbc.Driver";
+        String driverClass = "com.mysql.cj.jdbc.Driver";
         String userName = "root";
         String ps = "778632ab";
         String url = "jdbc:mysql://localhost:3306/" + dbName + "?"+"serverTimezone=GMT";

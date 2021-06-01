@@ -1,8 +1,7 @@
 package com.cbf.data_exchange.util;
 
-import com.cbf.data_exchange.util.DBUtil;
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
@@ -16,13 +15,13 @@ import java.util.Map;
  */
 public class DBUtilTest {
     @Test
-    void constructInsertSqlForOracleTest(){
+    public void constructInsertSqlForOracleTest(){
         Assert.assertEquals("INSERT INTO cbf_test (name,age,height,profit,school,reason) VALUES (?,?,?,?,?,?) ",
                 DBUtil.constructInsertSqlForOracle("cbf_test",
                         new String[]{"name", "age", "height", "profit", "school", "reason"}));
     }
     @Test
-    void constructInsertSqlForMysqlTest(){
+    public void constructInsertSqlForMysqlTest(){
         System.out.println(DBUtil.constructInsertSqlForMysql("sink_test_dataexchanger",
                 new String[]{"cobdate", "country", "province", "city", "carNumber", "profit"}));
         Assert.assertEquals("INSERT INTO sink_test_dataexchanger (cobdate,country,province,city,carNumber,profit) VALUES (?,?,?,?,?,?) ",
@@ -30,7 +29,7 @@ public class DBUtilTest {
                         new String[]{"cobdate", "country", "province", "city", "carNumber", "profit"}));
     }
     @Test
-    void buildJdbcTemplateTestForMysql(){
+    public void buildJdbcTemplateTestForMysql(){
         String dbName = "test";
         String driverClass = "com.mysql.jdbc.Driver";
         String userName = "root";
@@ -41,7 +40,7 @@ public class DBUtilTest {
         List<Map<String, Object>> mapList = jdbcTemplate.queryForList(sql);
     }
     @Test
-    void buildJdbcTemplateTestForOracle(){
+    public void buildJdbcTemplateTestForOracle(){
         String dbName = "test";
         String driverClass = "com.mysql.jdbc.Driver";
         String userName = "root";
@@ -50,7 +49,7 @@ public class DBUtilTest {
 
     }
     @Test
-    void buildJdbcTemplateTestForSqlserver(){
+    public void buildJdbcTemplateTestForSqlserver(){
         String dbName = "test";
         String driverClass = "com.mysql.jdbc.Driver";
         String userName = "root";

@@ -1,0 +1,16 @@
+{
+  "taskName":"test-task-file-to-db",
+  "sinker": {
+    "type": "",
+    "content": ""
+  },
+  "reader": {
+    "type": "",
+    "content": ""
+  },
+  "intermediateProcessor": {
+    "intermediateProcessClassName": "com.cbf.data_exchange.intermediateProcess.TestIntermediateProcessor"
+  },
+  "blockingQueueSize": 5000,
+  "columnMapFilePath": "D:\\workspace\\Data-Exchanger\\broker\\src\\main\\resources\\columnMap.json"
+}

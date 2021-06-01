@@ -30,7 +30,7 @@ public class CSVFileReader extends BaseReader implements Reader{
     }
 
     @Override
-    public void read() {
+    public void read(){
         log.info("CSV file read stage start!");
         long timeCost = 0;
         DataType.FileType fileType = config.getReader().getFileReader();
@@ -39,8 +39,9 @@ public class CSVFileReader extends BaseReader implements Reader{
         Map<Integer, String> indexAndColumnNameMap = null;
 //        Path file = Paths.get(new File(filePath).toURI());
         Path file = Paths.get(filePath);
+        BufferedReader reader = null;
         try{
-            BufferedReader reader = new BufferedReader(new InputStreamReader(Files.newInputStream(file)));
+            reader = new BufferedReader(new InputStreamReader(Files.newInputStream(file)));
             indexAndColumnNameMap = processAndSkipHeader(reader, headerLines);
             String line = null;
             while((line = reader.readLine())!=null){
@@ -62,6 +63,12 @@ public class CSVFileReader extends BaseReader implements Reader{
             isReadEnd.set(true);
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
+        }finally {
+            try{
+                reader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         log.info("CSV file read stage end!");
     }
