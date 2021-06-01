@@ -1,7 +1,7 @@
 package com.cbf.data_exchange.util;
 
 import com.cbf.data_exchange.config.DataExchangeConfig;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * @author Sky

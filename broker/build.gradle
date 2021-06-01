@@ -1,6 +1,6 @@
 
 
-group = 'Core-Java'
+group = 'broker'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
@@ -25,7 +25,4 @@ jar {
         attributes "Manifest-Version": 1.0,
                 'Main-Class': 'com.cbf.pay.CBFPayApplication'
     }
-}
-test {
-    useJUnitPlatform()
 }
