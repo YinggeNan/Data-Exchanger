@@ -103,7 +103,7 @@ public class TaskController {
 
     }
     /**
-     *  check proces of task
+     *  check process of task
      */
     @RequestMapping(value="/{id}/process",method = RequestMethod.GET)
     public void checkProcess(@PathVariable String id){
