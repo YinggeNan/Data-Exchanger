@@ -1,1 +1,0 @@
-CREATE DATABASE `data_exchanger` CHARACTER SET 'utf8' COLLATE 'utf8_general_ci';
