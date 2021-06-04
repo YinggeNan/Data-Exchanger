@@ -14,4 +14,6 @@ import org.springframework.stereotype.Service;
 public class TaskService {
     @Autowired
     TaskDao dao;
+    public void selectTasks(){
+    }
 }

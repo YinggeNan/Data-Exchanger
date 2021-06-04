@@ -1,0 +1,6 @@
+server:
+  port: 8085
+spring:
+  mvc:
+    servlet:
+      path: /web-ui

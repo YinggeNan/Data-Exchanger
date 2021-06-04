@@ -1,6 +1,5 @@
 package com.cbf.dao;
 
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,9 +9,6 @@ import org.springframework.stereotype.Component;
  * @description
  */
 @Component
-public class TaskDao {
-    JdbcTemplate jdbcTemplate;
-    public void insert(){
+public class RouterDao {
 
-    }
 }

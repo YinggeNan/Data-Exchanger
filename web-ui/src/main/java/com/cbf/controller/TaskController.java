@@ -1,7 +1,11 @@
 package com.cbf.controller;
 
+import com.cbf.bean.Task;
 import com.cbf.service.TaskService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @description
  * restful api 参考:http://restful.p2hp.com/search
  */
+@Slf4j
 @RestController
 @RequestMapping("/v1/api/tasks")
 public class TaskController {
@@ -22,10 +27,11 @@ public class TaskController {
 
     /**
      * select task list
+     * ResponseEntity的使用：https://blog.csdn.net/neweastsun/article/details/81142870
      */
     @RequestMapping(method = RequestMethod.GET)
-    public void selectTasks(){
-
+    public ResponseEntity<Task> selectTasks(){
+        return new ResponseEntity<Task>(HttpStatus.OK);
     }
 
     /**
@@ -34,7 +40,7 @@ public class TaskController {
      */
     @RequestMapping(value="/{id}",method = RequestMethod.GET)
     public void selectTaskById(@PathVariable String id){
-
+        System.out.println();
     }
 
     /**

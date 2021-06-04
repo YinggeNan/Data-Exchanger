@@ -1,5 +1,6 @@
 rootProject.name = 'Data-Exchanger'
 include 'broker'
 include 'router'
-include 'ExampleDemo'
 include 'web-ui'
+include 'common'
+
