@@ -5,3 +5,5 @@
 /web-ui/.gradle
 /.idea
 /broker/build/
+/web-ui/build/
+/router/build/
