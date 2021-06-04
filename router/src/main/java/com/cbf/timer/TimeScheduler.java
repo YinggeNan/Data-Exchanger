@@ -1,7 +1,7 @@
 package com.cbf.timer;
 
-import com.cbf.util.CronUtil;
 import org.springframework.stereotype.Component;
+import com.cbf.util.CronUtil;
 
 import javax.annotation.PostConstruct;
 import java.util.concurrent.DelayQueue;

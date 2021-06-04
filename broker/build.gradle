@@ -1,7 +1,7 @@
 
 
-group = 'broker'
-version = '0.0.1-SNAPSHOT'
+group = 'com.cbf.broker'
+version '1.0-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 configurations {
@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-
+    compile project(':common')
 }
 jar {
     baseName = 'Core-Java'

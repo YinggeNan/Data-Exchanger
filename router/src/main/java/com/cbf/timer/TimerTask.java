@@ -1,7 +1,6 @@
 package com.cbf.timer;
 
 import com.cbf.constant.TaskTypeEnum;
-import com.cbf.util.CronUtil;
 import lombok.Data;
 
 import java.util.concurrent.Delayed;

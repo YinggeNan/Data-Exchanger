@@ -1,4 +1,4 @@
-group 'com.cbf'
+group 'com.cbf.web-ui'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -7,6 +7,7 @@ repositories {
 }
 
 dependencies {
+    compile project(':common')
 }
 jar {
     manifest {

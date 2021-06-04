@@ -21,11 +21,4 @@ public class CronUtil {
         long  nextTriggerTimeStamp= getNextTriggerTimeStamp(cronExpression);
         return System.currentTimeMillis() >nextTriggerTimeStamp;
     }
-
-    public static void main(String[] args) {
-        String cronExpression = "0 0 0 1 1 1";
-        System.out.println(System.currentTimeMillis());
-        System.out.println(getNextTriggerTimeStamp(cronExpression));
-        System.out.println(isExpired(cronExpression));
-    }
 }
