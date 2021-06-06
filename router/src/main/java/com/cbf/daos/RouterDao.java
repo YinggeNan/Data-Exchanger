@@ -1,4 +1,4 @@
-package com.cbf.dao;
+package com.cbf.daos;
 
 import org.springframework.stereotype.Component;
 
@@ -9,5 +9,6 @@ import org.springframework.stereotype.Component;
  * @description
  */
 @Component
-public class UserDao {
+public class RouterDao {
+
 }

@@ -1,6 +1,6 @@
 package com.cbf.service;
 
-import com.cbf.dao.UserDao;
+import com.cbf.daos.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

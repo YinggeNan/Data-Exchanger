@@ -2,7 +2,10 @@ plugins {
     id 'org.springframework.boot' version'2.4.3'
     id 'java'
 }
-
+//使用springboot插件
+apply plugin:'org.springframework.boot'
+//版本管理插件
+apply plugin:'io.spring.dependency-management'
 repositories {
     maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
     mavenCentral()
@@ -17,21 +20,25 @@ subprojects{
     apply plugin:'org.springframework.boot'
     //版本管理插件
     apply plugin:'io.spring.dependency-management'
-    group ='pro.tscar.sgcc.ecp'
+    group ='com.cbf'
     // JVM 版本号要求
     sourceCompatibility =1.8
     targetCompatibility =1.8
     version = '3.0-SNAPSHOT'
     // java编译的时候缺省状态下会因为中文字符而失败
     [compileJava,compileTestJava,javadoc]*.options*.encoding ='UTF-8'
-    bootJar {
-        enabled =false  // 默认不需要打可执行jar包
-    }
+//    bootJar {
+//        enabled =false  // 默认不需要打可执行jar包
+//    }
     // 配置所有子模块的依赖仓库地址
     repositories {
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
 //        maven { url'https://repo.spring.io/milestone' }
+        maven{
+            url 'file://D:/workspace/repo'
+        }
         mavenCentral()
+
     }
     //所有子模块共有依赖
     dependencies {
@@ -57,5 +64,14 @@ subprojects{
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        //    compile project(':common')
+        implementation 'com.cbf:common:1.0'
     }
+    jar {
+        enabled = true
+    }
+    bootJar {
+        classifier = 'boot'
+    }
+
 }

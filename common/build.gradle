@@ -13,28 +13,43 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 }
-
-//发布到本地的maven仓库
-apply plugin: 'maven'
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            pom.project {
-                // 唯一标识（通常为模块包名，也可以任意）
-                groupId 'com.cbf'
-                // 项目名称（通常为类库模块名称，也可以任意）
-                artifactId 'common'
-                // 项目版本号
-                version '1.0'
-            }
-            // 自定义本地仓库路径，此处是项目根目录下的 repository目录中
-            repository(url: uri("../repo"))
-            //也可以知道保存绝对路径F:/maven/repo
-            // repository(url: uri("F:/maven/repo"))
+//将src文件夹中的xml资源文件同时打包到class下
+sourceSets {
+    main {
+        resources {
+            //可以将java目录下的所有非.java资源打包到classes下
+            srcDir 'src/main/java'
         }
     }
 }
-task makeJar(type: Jar) {
-    from('build/classes/')
+//uploadArchives {
+//    repositories {
+//        mavenDeployer {
+//            pom.project {
+//                // 唯一标识（通常为模块包名，也可以任意）
+//                groupId 'com.cbf'
+//                // 项目名称（通常为类库模块名称，也可以任意）
+//                artifactId 'common'
+//                // 项目版本号
+//                version '1.0'
+//            }
+//            // 自定义本地仓库路径，此处是项目根目录下的 repository目录中
+//            repository(url: uri("../repo"))
+//            //也可以知道保存绝对路径F:/maven/repo
+//             repository(url: uri("F:/maven/repo"))
+//        }
+//    }
+//}
+
+//发布到本地的maven仓库
+apply plugin: 'maven'
+// 发布到本地
+// gradle clean build uploadArchives
+uploadArchives {
+    repositories.mavenDeployer {
+        repository(url: LOCAL_REPO_URL)
+        pom.groupId = project_group
+        pom.artifactId = project_artifactid
+        pom.version = project_version
+    }
 }
-makeJar.dependsOn(build)

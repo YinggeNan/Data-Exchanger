@@ -1,8 +1,8 @@
 package com.cbf.data_exchange.dao;
 
 import com.cbf.data_exchange.util.DBUtil;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.Locale;
@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public class GenericDAOForMysqlTest {
     GenericDAO genericDAO;
-    @Before
+    @BeforeEach
     public void init(){
         String dbName = "test";
         String driverClass = "com.mysql.cj.jdbc.Driver";

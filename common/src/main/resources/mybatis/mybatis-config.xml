@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+		PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 引入属性配置文件 -->
+	<properties resource="mybatis/jdbc.properties"></properties>
+
+	<!-- 2、设置：定义全局性设置，例如开启二级缓存 -->
+	<settings>
+		<setting name="cacheEnabled" value="true"/>
+	</settings>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${username}"/>
+				<property name="password" value="${password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper class="com.cbf.mybatis.BrokerMapper"/>
+<!--		<mapper resource="com/cbf/mappers/TaskExecutionLogMapper.xml"/>-->
+<!--		<mapper resource="com/cbf/mappers/TaskMapper.xml"/>-->
+<!--		<mapper resource="com/cbf/mappers/TaskScheduleMapper.xml"/>-->
+<!--		<mapper resource="com/cbf/mappers/UserMapper.xml"/>-->
+<!--		<mapper resource="com/cbf/mappers/UserTaskMapper.xml"/>-->
+	</mappers>
+</configuration>

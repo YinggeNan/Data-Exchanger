@@ -7,7 +7,6 @@ repositories {
 }
 
 dependencies {
-    compile project(':common')
 }
 jar {
     manifest {
